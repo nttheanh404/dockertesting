@@ -92,6 +92,6 @@ int main() {
     });
 
     std::cout << "HTTP tracker listening on port 6881" << std::endl;
-    svr.listen("0.0.0.0", 6881); // lắng nghe tất cả interface
+    svr.listen("0.0.0.0", 80); // lắng nghe tất cả interface
 }
 
