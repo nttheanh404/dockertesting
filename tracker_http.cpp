@@ -22,7 +22,7 @@ int main() {
     });
 
     // thread ping waker
-    std::thread ping_thread(ping_waker, "https://tracker-cronjob.onrender.com"); // URL waker
+    std::thread ping_thread(ping_waker, "http://tracker-cronjob.onrender.com"); // URL waker
 
     std::cout << "[Tracker] HTTP tracker listening on port 80" << std::endl;
     svr.listen("0.0.0.0", 80);
