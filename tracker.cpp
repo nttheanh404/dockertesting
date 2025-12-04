@@ -91,7 +91,7 @@ int main() {
         std::cout << "Peer pinged tracker!" << std::endl;
     });
 
-    std::cout << "HTTP tracker listening on port 6881" << std::endl;
+    std::cout << "HTTP tracker listening on port 80" << std::endl;
     svr.listen("0.0.0.0", 80); // lắng nghe tất cả interface
 }
 
