@@ -2,7 +2,6 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
-#include <httplib.h>
 
 void ping_waker(const std::string& waker_url) {
     httplib::Client cli(waker_url.c_str());
