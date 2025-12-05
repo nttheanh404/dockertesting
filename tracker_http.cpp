@@ -1,17 +1,5 @@
 #include "httplib.h"
 #include <iostream>
-#include <thread>
-#include <chrono>
-
-void ping_waker(const std::string& waker_url) {
-    httplib::Client cli(waker_url.c_str());
-    while (true) {
-        auto res = cli.Get("/ping");
-        if (res) std::cout << "[Tracker] Pinged waker: " << res->status << std::endl;
-        else std::cout << "[Tracker] Failed to ping waker!" << std::endl;
-        std::this_thread::sleep_for(std::chrono::minutes(4));
-    }
-}
 
 int main() {
     httplib::Server svr;
@@ -21,11 +9,8 @@ int main() {
         std::cout << "[Tracker] Peer pinged tracker!" << std::endl;
     });
 
-    // thread ping waker
-    std::thread ping_thread(ping_waker, "http://tracker-cronjob.onrender.com"); // URL waker
-
     std::cout << "[Tracker] HTTP tracker listening on port 80" << std::endl;
     svr.listen("0.0.0.0", 80);
 
-    ping_thread.join();
+    return 0;
 }
